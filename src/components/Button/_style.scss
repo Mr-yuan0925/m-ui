@@ -9,20 +9,74 @@
   vertical-align: middle;
   background-image: none;
   border: $btn-border-width solid transparent;
-  padding: $btn-padding-y-base $btn-padding-x-base;
-  font-size: $btn-font-size;
-  border-radius: $btn-border-radius;
+  @include button-size($btn-padding-y-base, $btn-padding-x-base,$btn-font-size,$btn-border-radius);
   box-shadow: $btn-box-shadow;
   cursor: pointer;
   transition: $btn-transition;
   background-color: $body-color;
+  outline: none;
   &。disabled,
   &[disabled] {
     cursor: not-allowed;
-    opacity: $btn-opacity;
+    opacity: $btn-disabled-opacity;
     box-shadow: none;
     > * {
       pointer-events: none;
     }
+  }
+}
+
+// 不同尺寸的按钮大小
+.btn-small {
+  @include button-size($btn-padding-y-sm,$btn-padding-x-sm,$btn-font-size-sm,$btn-border-radius-sm)
+}
+
+.btn-large {
+  @include button-size($btn-padding-y-lg,$btn-padding-x-lg,$btn-font-size-lg,$btn-border-radius-lg)
+}
+
+// 设置按钮的不同type样式
+.btn-primary {
+  @include button-style($primary,$primary,$white);
+}
+
+.btn-success {
+  @include button-style($success,$success,$white);
+}
+
+.btn-info {
+  @include button-style($info,$info,$white);
+}
+
+.btn-warning {
+  @include button-style($warning,$warning,$white);
+}
+
+.btn-danger {
+  @include button-style($danger,$danger,$white);
+}
+
+.btn-default {
+  @include button-style($body-bg,$gray-light,$gray-dark,$white,$primary,$primary);
+}
+
+// 特殊处理link按钮
+.btn-link {
+  box-shadow: none;
+  font-weight: $font-weight-base;
+  color: $btn-link-color;
+  text-decoration: $link-decoration;
+  &:hover {
+    color: $link-hover-color;
+  }
+  &:focus,
+  &.focus {
+    color: $link-hover-color;
+  }
+  &:disabled,
+  &.disabled {
+    cursor: not-allowed;
+    color: $gray;
+    pointer-events: none;
   }
 }

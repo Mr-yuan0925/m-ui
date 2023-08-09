@@ -15,7 +15,6 @@ export interface IButtonProps {
     className?: string;
     disabled?: boolean;
     href?: string;
-    onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
     /**
        * The size of the button.
      */
@@ -27,34 +26,34 @@ export interface IButtonProps {
 }
 
 export enum  ButtonType {
-  Primary = "primary",
-  Secondary = "secondary",
-  Success = "success",
-  Danger = "danger",
-  Warning = "warning",
-  Info = "info",
-  Light = "light",
-  Dark = "dark",
-  link = "link",
+    primary = "primary",
+    secondary = "secondary",
+    success = "success",
+    danger = "danger",
+    warning = "warning",
+    info = "info",
+    light = "light",
+    dark = "dark",
+    link = "link",
     default = "default"
 }
 
-export interface IButtonState {
-  isActive: boolean;
-}
+type NativeButtonProps = IButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>
+type AnchorButtonProps = IButtonProps & React.AnchorHTMLAttributes<HTMLAnchorElement>
+export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>
 
-const Button:React.FC<IButtonProps> = (props) => {
+const Button:React.FC<ButtonProps> = (props) => {
     const {
         children,
         className,
         disabled,
         href,
-        onClick,
         size,
         btnType,
+        ...restProps
     } = props
 
-    const classes = classNames('btn', {
+    const classes = classNames('btn', className, {
         [`btn-${size}`]: size,
         [`btn-${btnType}`]: btnType,
         [`btn-${size}-${btnType}`]: size && btnType,
@@ -64,16 +63,16 @@ const Button:React.FC<IButtonProps> = (props) => {
     // 如果是link
     if(btnType === ButtonType.link && href){
         return (
-            <a href={href} className={classes}>
+            <a href={href} {...restProps} className={classes}>
                 {children}
             </a>
         )
     } else {
         return (
             <button
+                {...restProps}
                 className={classes}
                 disabled={disabled}
-                onClick={onClick}
             >
                 {children}
             </button>

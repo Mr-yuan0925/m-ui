@@ -8,10 +8,14 @@ function App() {
         <h1>Welcome to React</h1>
         <h2>Welcome to React</h2>
         <h3>Welcome to React</h3>
-          <Button>按钮</Button>
-          <Button size={ButtonSize.medium} >按钮</Button>
-          <Button size={ButtonSize.large} btnType={ButtonType.Primary} >按钮</Button>
-          <Button disabled size={ButtonSize.large} btnType={ButtonType.Danger} >禁止按钮</Button>
+          <Button autoFocus onClick={(e)=>{e.preventDefault(); alert(11)}}>按钮</Button>
+          <Button size={ButtonSize.medium} >正常按钮</Button>
+          <Button size={ButtonSize.small} >小号按钮</Button>
+          <Button disabled size={ButtonSize.large} btnType={ButtonType.primary} >大号Primary按钮</Button>
+          <Button size={ButtonSize.large} btnType={ButtonType.primary} >大号Primary按钮</Button>
+          <Button disabled size={ButtonSize.large} btnType={ButtonType.danger} >禁止按钮</Button>
+          <Button size={ButtonSize.large} btnType={ButtonType.danger} >禁止按钮</Button>
+          <Button size={ButtonSize.large} btnType={ButtonType.link} href={"https://www.baidu.com"} >禁止按钮</Button>
           <Button disabled size={ButtonSize.large} btnType={ButtonType.link} href={"https://www.baidu.com"} >禁止按钮</Button>
       <p>
         To get started, edit <code>src/App.tsx</code> and save to reload.

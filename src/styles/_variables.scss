@@ -11,6 +11,7 @@ $success: #2ecc40 !default
 $info: #39cccc !default
 $warning: #ff851b !default
 $danger: #ff4136 !default
+$link: #0074d9 !default
 
 $primary-light: #b3e5fc !default
 $success-light: #d1f9da !default
@@ -130,7 +131,7 @@ $btn-border-width: $border-width !default
 $btn-disabled-opacity: .65 !default
 
 // 链接按钮样式
-$btn-link-color: $link-color !default
+$btn-link-color: $link !default
 $btn-link-hover-color: $link-hover-color !default
 $btn-link-disabled-color: $gray-light !default
 
@@ -142,6 +143,8 @@ $border-radius-lg: 8px !default
 $btn-border-radius: $border-radius !default
 $btn-border-radius-lg: $border-radius-lg !default
 $btn-border-radius-sm: $border-radius-sm !default
+$border-color: transparent !default
+$btn-border-color: $border-color !default
 
 $btn-box-shadow: 2px 3px 8px 0px $gray-light !default
 $btn-transition: color .15s ease-in-out, background-color .15s !default
