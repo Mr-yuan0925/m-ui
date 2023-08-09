@@ -19,5 +19,10 @@
   &。disabled,
   &[disabled] {
     cursor: not-allowed;
+    opacity: $btn-opacity;
+    box-shadow: none;
+    > * {
+      pointer-events: none;
+    }
   }
 }
