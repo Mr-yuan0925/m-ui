@@ -1,0 +1,23 @@
+.btn {
+  position: relative;
+  display: inline-block;
+  font-weight: $btn-font-weight;
+  line-height: $btn-line-height;
+  color: $gray-dark;
+  white-space: nowrap;
+  text-align: center;
+  vertical-align: middle;
+  background-image: none;
+  border: $btn-border-width solid transparent;
+  padding: $btn-padding-y-base $btn-padding-x-base;
+  font-size: $btn-font-size;
+  border-radius: $btn-border-radius;
+  box-shadow: $btn-box-shadow;
+  cursor: pointer;
+  transition: $btn-transition;
+  background-color: $body-color;
+  &。disabled,
+  &[disabled] {
+    cursor: not-allowed;
+  }
+}
